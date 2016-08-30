@@ -1,4 +1,3 @@
-
 package sort.distribution;
 
 import java.util.ArrayList;
@@ -7,8 +6,9 @@ import java.util.Iterator;
 ;
 
 /**
- * @fun 桶排序(Bucket sort)
- *      基本思想：将数组分到有限数量的桶子里。每个桶子再个别排序（有可能再使用其他别的排序算法或是以递归的方式继续使用桶排序来进行排序）。
+ * @fun 桶排序(Bucket sort)<br/>
+ *      基本思想：将数组分到有限数量的桶子里。<br/>
+ *      每个桶子再个别排序（有可能再使用其他别的排序算法或是以递归的方式继续使用桶排序来进行排序）。<br/>
  * @author shadow E-mail:zyydqpi@163.com
  * @Date 2016年8月29日下午8:13:25
  * @version 1.0
@@ -37,7 +37,7 @@ public class BucketSort implements IDistributionSort {
 			}
 			list[temp].add(datas[i]);
 		}
-
+		//桶内排序
 		for (int i = 0; i < length; i++) {
 			if(null != list[i]){
 				//此处排序方法不定。除三大线性排序外，都没有Collections和Arrays里的sort好，优化后的快速排序

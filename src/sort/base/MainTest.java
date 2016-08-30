@@ -14,7 +14,8 @@ import sort.select.HeapSort;
 import sort.select.SingleSelectSort;
 
 /**
- *
+ * @fun 常用排序测试类<br/>
+ * 		目前所有的排序有：简单插入排序、二分插入排序、希尔排序、简单选择排序、堆排序、冒泡排序、归并排序、基准排序、鸡尾酒排序、快速排序。<br/>
  * @author shadow E-mail:zyydqpi@163.com
  * @Date 2016年8月28日下午7:49:29
  * @version 1.0
