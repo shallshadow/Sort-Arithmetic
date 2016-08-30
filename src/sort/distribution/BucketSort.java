@@ -48,7 +48,7 @@ public class BucketSort implements IDistributionSort {
 		//Êä³ö
 		int count = 0;
 		for(int i = 0; i < length; i++){
-			if(null == list[i]){
+			if(null != list[i]){
 				Iterator<Integer> iterator = list[i].iterator();
 				while(iterator.hasNext()){
 					datas[count++] = iterator.next();

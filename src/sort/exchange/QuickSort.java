@@ -33,7 +33,7 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 		if(low < high){
 			int middle = getMiddle(datas, low, high);
 			//先排左半部分
-			quickSort(datas, 0, middle - 1);
+			quickSort(datas, low, middle - 1);
 			//后排右半部分
 			quickSort(datas, middle + 1, high);
 		}

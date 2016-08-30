@@ -22,12 +22,13 @@ import sort.select.SingleSelectSort;
  **/
 public class MainTest {
 	public static void main(String[] args) {
-
-		int datas[] = { 5, 6, 8, 7, 4, 2, 3, 1, 11, 12, 9, 10 };
+		RandomBuilder builder = new RandomBuilder(1000);
+		builder.generate();
+		int datas[] = builder.getDatas();
 
 		ISort[] sort = { new SingleInsertSort(), new BinaryInsertSort(), new ShellSort(), new SingleSelectSort(),
-				new HeapSort(), new BubbleSort(), new QuickSort(), new MergeSort(), new RadixSort(), new CocktailSort(),
-				new BucketSort()};
+				new HeapSort(), new BubbleSort(),  new MergeSort(), new RadixSort(), new CocktailSort(),
+				new BucketSort(),new QuickSort(),};
 		SortContext context = null;
 		for (int i = 0; i < sort.length; i++) {
 			context = new SortContext(sort[i]);
