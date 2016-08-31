@@ -26,10 +26,11 @@ public class MainTest {
 		RandomBuilder builder = new RandomBuilder(1000);
 		builder.generate();
 		int datas[] = builder.getDatas();
-
+		//ISort[] sort = {new RadixSort()};
 		ISort[] sort = { new SingleInsertSort(), new BinaryInsertSort(), new ShellSort(), new SingleSelectSort(),
 				new HeapSort(), new BubbleSort(),  new MergeSort(), new RadixSort(), new CocktailSort(),
 				new BucketSort(),new QuickSort(),};
+		
 		SortContext context = null;
 		for (int i = 0; i < sort.length; i++) {
 			context = new SortContext(sort[i]);

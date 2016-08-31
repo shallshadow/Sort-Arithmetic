@@ -15,8 +15,8 @@ import java.util.List;
  * @since
  * 
  * 分析：<br/>
- * 基数排序是稳定的排序算法。
- * 基数排序的时间复杂度为O(d(n+r)),d为位数，r为基数
+ * 基数排序是稳定的排序算法。<br/>
+ * 基数排序的时间复杂度为O(d(n+r)),d为位数，r为基数<br/>
  **/
 public class RadixSort implements IDistributionSort {
 	private final int QUEUEMAX = 10;
@@ -40,6 +40,7 @@ public class RadixSort implements IDistributionSort {
 		//进行times次分配和收集
 		for(int i = 0; i < times; i++){
 			for(int j = 0; j < datas.length; j++){
+				//按个十百千位依次取数
 				int x = datas[j] % (int)Math.pow(10, i+1) / (int)Math.pow(10, i);
 				Deque<Integer> deque = list.get(x);
 				deque.offer(datas[j]);
