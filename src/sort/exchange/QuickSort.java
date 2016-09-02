@@ -42,7 +42,7 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 	private int getMiddle(int[] datas, int low, int high){
 		//基准元素
 		int temp = datas[low];
-		
+		//保证循环不定式 
 		while(low < high){			
 			//找到比基准元素小的位置
 			while(low < high && datas[high] >= temp){
