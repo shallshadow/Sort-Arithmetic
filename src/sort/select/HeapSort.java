@@ -87,7 +87,7 @@ public class HeapSort implements ISelectSort {
 				}
 				// 如果k节点的值小于其较大的子节点的值
 				if (datas[k] < datas[biggerIndex]) {
-					// 施行交换
+					// 施行交换+
 					swap(datas, k, biggerIndex);
 					// 将biggerIndex赋予k，开始while循环的下一次循环，重新保证k节点的值大于其左右子节点的值
 					k = biggerIndex;
