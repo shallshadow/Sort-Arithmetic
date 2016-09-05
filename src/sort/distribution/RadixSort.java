@@ -42,8 +42,10 @@ public class RadixSort implements IDistributionSort {
 			for(int j = 0; j < datas.length; j++){
 				//按个十百千位依次取数
 				int x = datas[j] % (int)Math.pow(10, i+1) / (int)Math.pow(10, i);
+				//获取位数字相对应的队列
 				Deque<Integer> deque = list.get(x);
 				deque.offer(datas[j]);
+				//将该队列重新置于x位置处的List
 				list.set(x, deque);
 			}
 			//收集

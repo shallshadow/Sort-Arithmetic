@@ -5,7 +5,7 @@ package sort.insert;
  *
  * @fun 二分法插入排序(按二分法找到合适位置插入)<br/> 
  *      基本思想：二分法插入排序的思想和直接插入一样，只是找到合适的插入位置的方式不同，这里是按二分法找到合适的位置，可以减少比较次数。<br/>
- *		稳定的排序算法。
+ *		稳定的排序算法。<br/>
  * @author shadow E-mail:zyydqpi@163.com
  * @Date 2016年8月28日下午8:03:28
  * @version 1.0
@@ -21,17 +21,27 @@ public class BinaryInsertSort implements IInsertSort {
 	@Override
 	public void sort(int[] datas) {
 		// TODO Auto-generated method stub
+		binarySort(datas);
+	}
+	
+	/**
+	 * 二分插入排序算法实现
+	 * @param datas 需要排序的数据
+	 */
+	private void binarySort(int[] datas){
 		if(datas == null || datas.length == 0){
 			return;
 		}
 		
 		for(int i = 1; i < datas.length; i++){
 			int temp = datas[i];
+			//获取当前插入的位置
 			int left =binarySearch(datas, i);
+			//循环遍历，移动数组
 			for(int j = i - 1; j >= left; j--){
 				datas[j + 1] = datas[j];
 			}
-			
+
 			if(left != i){
 				datas[left] = temp;
 			}
@@ -41,9 +51,11 @@ public class BinaryInsertSort implements IInsertSort {
 	//二分法遍历查找
 	private int binarySearch(int[] datas, int i) {
 		int temp = datas[i];
+		
 		int left = 0;
 		int right = i - 1;
 		int mid = 0;
+		
 		while (left <= right) {
 			mid = (left + right) / 2;
 			if (temp < datas[mid]) {
@@ -52,6 +64,7 @@ public class BinaryInsertSort implements IInsertSort {
 				left = mid + 1;
 			}
 		}
+		
 		return left;
 	}
 

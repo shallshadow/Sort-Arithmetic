@@ -21,6 +21,7 @@ public class SortContext {
 		long start = System.currentTimeMillis();
 		this.sort.sort(datas);
 		timeConsum = System.currentTimeMillis() - start;
+		System.out.println("Data's Length : " + datas.length);
 	}
 	
 	public void show(int datas[]){
@@ -30,6 +31,9 @@ public class SortContext {
 		
 		System.out.println(this.sort.getName());
 		for(int i = 0; i < datas.length; i++){
+			if(i % 100 == 0){
+				System.out.println();
+			}
 			System.out.print(datas[i] + "  ");
 		}
 		System.out.println();

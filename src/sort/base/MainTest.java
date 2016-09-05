@@ -22,21 +22,46 @@ import sort.select.SingleSelectSort;
  * @since
  **/
 public class MainTest {
+	static RandomBuilder builder = new RandomBuilder(100000);
+	
 	public static void main(String[] args) {
-		RandomBuilder builder = new RandomBuilder(1000);
 		builder.generate();
+		//testRadixSort();
+		testShellSort();
+	}
+	
+	public static void testShellSort(){
+		ISort sort = new ShellSort();
+		testOne(sort);
+	}
+	
+	public static void testRadixSort(){		
+		ISort sort = new RadixSort();
+		testOne(sort);		
+	}
+	
+	public static void testOne(ISort sort){
+		int datas[] = builder.getDatas();
+		SortContext context = new SortContext(sort);
+		context.sort(datas);
+		context.show(datas);
+	}
+	
+	
+	public static void testAll(){
+
 		int datas[] = builder.getDatas();
 		//ISort[] sort = {new RadixSort()};
 		ISort[] sort = { new SingleInsertSort(), new BinaryInsertSort(), new ShellSort(), new SingleSelectSort(),
 				new HeapSort(), new BubbleSort(),  new MergeSort(), new RadixSort(), new CocktailSort(),
-				new BucketSort(),new QuickSort(),};
+				new BucketSort(),new QuickSort()};
 		
 		SortContext context = null;
 		for (int i = 0; i < sort.length; i++) {
 			context = new SortContext(sort[i]);
 
 			context.sort(datas);
-			context.show(datas);
+			//context.show(datas);
 		}
 	}
 }

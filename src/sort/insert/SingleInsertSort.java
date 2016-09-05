@@ -23,6 +23,10 @@ public class SingleInsertSort implements IInsertSort {
 	@Override
 	public void sort(int[] datas) {
 		// TODO Auto-generated method stub
+		insertSort(datas);
+	}
+	
+	private void insertSort(int[] datas){
 		for (int i = 1; i < datas.length; i++) {
 			int temp = datas[i];
 			int j;

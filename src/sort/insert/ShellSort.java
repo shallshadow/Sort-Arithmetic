@@ -21,8 +21,7 @@ package sort.insert;
  *        而各组的记录数目逐渐增多，但由于已经按di-1作为距离排过序，使文件较接近于有序状态，所以新的一趟排序过程也较快。<br/>
  *        因此，希尔排序在效率上较直接插人排序有较大的改进。 希尔排序的平均时间复杂度为O(nlogn)。<br/>
  *
-  
- *        **/
+ **/
 public class ShellSort implements IInsertSort {
 
 	@Override
@@ -31,29 +30,45 @@ public class ShellSort implements IInsertSort {
 		if (datas == null || datas.length == 0) {
 			return;
 		}
-
+		
+		shellSort(datas);
+	}
+	/**
+	 * 希尔排序算法实现
+	 * @param datas
+	 */
+	private void shellSort(int[] datas){
 		int d = datas.length;
 		while (true) {
 			d = d / 2;
 			for (int x = 0; x < d; x++) {
 				// 直接插入排序
-				for (int i = x + d; i < datas.length; i = i + d) {
-					int temp = datas[i];
-					int j;
-					for (j = i - 1; j >= 0; j--) {
-						if (temp < datas[j]) {
-							datas[j + 1] = datas[j];
-						} else {
-							break;
-						}
-					}
-					datas[j + 1] = temp;
-				}
+				insertSort(x, d, datas);
 			}
-
+			
 			if (d == 1) {
 				break;
 			}
+		}
+	}
+	/**
+	 * 以定长为分组进行插入排序
+	 * @param x 数组索引
+	 * @param d 分组大小
+	 * @param datas 需要排序的数组
+	 */
+	private void insertSort(int x, int d, int[] datas){		
+		for (int i = x; i < datas.length; i = i + d) {
+			int temp = datas[i];
+			int j;
+			for (j = i - 1; j >= 0; j--) {
+				if (temp < datas[j]) {
+					datas[j + 1] = datas[j];
+				} else {
+					break;
+				}
+			}
+			datas[j + 1] = temp;
 		}
 	}
 
