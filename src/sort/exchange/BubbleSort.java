@@ -7,13 +7,14 @@ package sort.exchange;
  * @author shadow E-mail:zyydqpi@163.com
  * @Date 2016年8月29日下午3:03:29
  * @version 1.0
- * @since 
- * 
- * 
+ * @since 1.0   
+ * @description  
+ *  1.
+ *  
  * 分析：<br/>
  * 	若文件初状为正序，则一趟起泡就可完成排序，排序码的比较次数为n-1，且没有记录移动，时间复杂度是O(n)
- *	若文件初态为逆序，则需要n-1趟起泡，每趟进行n-i次排序码的比较，且每次比较都移动三次，比较和移动次数均达到最大值∶O(n2)
- *	起泡排序平均时间复杂度为O(n2)
+ *	若文件初态为逆序，则需要n-1趟起泡，每趟进行n-i次排序码的比较，且每次比较都移动三次，比较和移动次数均达到最大值∶O(n^2)
+ *	起泡排序平均时间复杂度为O(n^2)
  **/
 public class BubbleSort implements IExchangeSort {
 
@@ -34,6 +35,12 @@ public class BubbleSort implements IExchangeSort {
 		}
 	}
 	
+	/**
+	 * 交换数组中第i个和第j个元素
+	 * @param datas 目标数组
+	 * @param i 下标i
+	 * @param j 下标j
+	 */
 	private void swap(int[] datas, int i, int j){
 		int temp = datas[j];
 		datas[j] = datas[i];

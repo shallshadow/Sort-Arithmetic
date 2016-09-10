@@ -13,6 +13,12 @@ import java.util.Iterator;
  * @Date 2016年8月29日下午8:13:25
  * @version 1.0
  * @since
+ * @description 
+ * 1.假设待排序的一组数统一的分布在一个范围中，并将这一范围分成几个子范围，即桶。<br/>
+ * 2.将待排序的一组数，分档归入这些子桶，并将桶中的数据进行排序。<br/>
+ * 3.将各个桶中的数据依次组合起来即可。<br/>
+ * 
+ * 时间复杂度O(n) 空间复杂度O(N)
  **/
 public class BucketSort implements IDistributionSort {
 
@@ -31,10 +37,12 @@ public class BucketSort implements IDistributionSort {
 		ArrayList<Integer> list[] = new ArrayList[length];
 		// 划分桶并填元素
 		for (int i = 0; i < length; i++) {
+			//划分范围[0...length-1]
 			int temp = (int) Math.floor(datas[i] % length);
 			if (null == list[temp]) {
 				list[temp] = new ArrayList<Integer>();
 			}
+			//！！在添加的同时维护其有序性
 			list[temp].add(datas[i]);
 		}
 		//桶内排序
@@ -64,3 +72,6 @@ public class BucketSort implements IDistributionSort {
 	}
 
 }
+/**
+ * 排序算法动画演示：http://www.cs.usfca.edu/~galles/visualization/BucketSort.html
+ */

@@ -26,7 +26,12 @@ public class MergeSort implements IMergerSort {
 		
 		mergeSort(datas, 0, datas.length - 1);
 	}
-	//归并排序开始
+	/**
+	 * 归并排序
+	 * @param datas 需要排序的数组
+	 * @param left  拆分的数组最左边索引
+	 * @param right 拆分的数组最右边索引
+	 */
 	private void mergeSort(int[] datas, int left, int right) {
 		if (left < right) {
 			int middle = (left + right) / 2;
@@ -39,15 +44,22 @@ public class MergeSort implements IMergerSort {
 		}
 	}
 
-	//合并两个数组
+	/**
+	 * 合并两个数组
+	 * @param datas  数据数组
+	 * @param left   最左边索引
+	 * @param middle 中间索引
+	 * @param right  最右边索引
+	 */
 	private void merge(int[] datas, int left, int middle, int right) {
 		int[] tmpArr = new int[datas.length];
 		// 右边的起始位置
 		int mid = middle + 1;
 		int tmp = left;
 		int third = left;
-		while (left <= middle && mid <= right) {
-			// 从两个数组中选取较小的数放入中间数组
+		
+		// 从两个数组中选取较小的数放入中间数组
+		while (left <= middle && mid <= right) {			
 			if (datas[left] <= datas[mid]) {
 				tmpArr[third++] = datas[left++];
 			} else {

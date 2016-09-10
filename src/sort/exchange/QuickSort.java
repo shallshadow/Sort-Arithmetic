@@ -11,7 +11,7 @@ import sort.distribution.IDistributionSort;
  * @Date 2016年8月29日下午3:27:24
  * @version 1.0
  * @since 
- * 
+ * @description
  * 分析：<br/>
  * 	快速排序是不稳定的排序。<br/>
  * 	快速排序的时间复杂度为O(nlogn)。<br/>
@@ -33,7 +33,7 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 	private void quickSort(int[] datas, int low, int high){
 		if(low < high){
 			//求得基准元素
-			int middle = getMiddle(datas, low, high);
+			int middle = postion(datas, low, high);
 			//先排左半部分，采取元素右边第一个数据为基准元素
 			quickSort(datas, low, middle - 1);
 			//后排右半部分，采油左边第一个数据为基准元素
@@ -48,7 +48,7 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 	 * @param high 高位
 	 * @return 返回当前基准所在位置
 	 */
-	private int getMiddle(int[] datas, int low, int high){
+	private int postion(int[] datas, int low, int high){
 		//基准元素
 		int temp = datas[low];
 		//保证循环不定式 
