@@ -9,7 +9,7 @@ package sort.select;
  * @version 1.0
  * @since 
  * 
- * @analysis 简单选择排序是不稳定的排序。时间复杂度：T(n)=O(n2)。
+ * @analysis 简单选择排序是不稳定的排序。时间复杂度：T(n)=O(n^2)。
  **/
 public class SingleSelectSort implements ISelectSort {
 

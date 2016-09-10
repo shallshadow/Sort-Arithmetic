@@ -57,6 +57,7 @@ public class HeapSort implements ISelectSort {
 		for (int i = 0; i < len; i++) {
 			// 建堆
 			buildMaxHeap(datas, len - i - 1);
+			showArray(datas);
 			// 交换堆顶和最后一个元素（重要）
 			swap(datas, 0, len - 1 - i);
 		}
@@ -65,8 +66,8 @@ public class HeapSort implements ISelectSort {
 	/**
 	 * 对data数据从0到lastIndex建大顶堆
 	 * 
-	 * @param datas
-	 * @param lastIndex
+	 * @param datas 要排序的数组
+	 * @param lastIndex 最后一个元素的位置
 	 */
 	private void buildMaxHeap(int[] datas, int lastIndex) {
 		// 从lastIndex处节点(最后一个节点)的父节点开始
@@ -97,6 +98,13 @@ public class HeapSort implements ISelectSort {
 			}
 
 		}
+	}
+	
+	private void showArray(int[]  datas){
+		for(int i : datas){
+			System.out.print(" " + i);
+		}
+		System.out.println();
 	}
 
 	/**
