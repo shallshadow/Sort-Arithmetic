@@ -2,6 +2,7 @@
 package sort.exchange;
 
 import sort.distribution.IDistributionSort;
+import java.util.Random;
 
 /**
  * @fun 快速排序 <br/>
@@ -32,6 +33,8 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 
 	private void quickSort(int[] datas, int low, int high){
 		if(low < high){
+            //Random the datas
+            random_partion(datas, low, high);
 			//求得基准元素
 			int middle = postion(datas, low, high);
 			//先排左半部分，采取元素右边第一个数据为基准元素
@@ -40,6 +43,17 @@ public class QuickSort implements IExchangeSort,IDistributionSort {
 			quickSort(datas, middle + 1, high);
 		}
 	}
+
+    private void random_partion(int[] datas, int low, int high) {
+        int i = low + new Random().nextInt(high - low + 1);
+        swap(datas, i, high);
+    }
+    
+    private void swap(int[] datas, int low, int high) {
+        int temp = datas[low];
+        datas[low] = datas[high];
+        datas[high] = temp;
+    }
 	
 	/**
 	 * 采取数组第一个数为基准元素，交换完数据后，返回基准当前的位置

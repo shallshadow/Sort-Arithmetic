@@ -1,4 +1,3 @@
-
 package sort.select;
 
 /**
@@ -8,7 +7,7 @@ package sort.select;
  *      （h1,h2,...,hn),当且仅当满足（hi>=h2i,hi>=2i+1）或（hi<=h2i,hi<=2i+1）
  *      (i=1,2,...,n/2)时称之为堆。<br/>
  *      在这里只讨论满足前者条件的堆。由堆的定义可以看出，堆顶元素（即第一个元素）必为最大项（大顶堆）。<br/>
- *      完全二 叉树可以很直观地表示堆的结构。堆顶为根，其它为左子树、右子树。<br/>
+ *      完全二叉树可以很直观地表示堆的结构。堆顶为根，其它为左子树、右子树。<br/>
  *      <p>
  *      思想:初始时把要排序的数的序列看作是一棵顺序存储的二叉树，调整它们的存储序，使之成为一个 堆，这时堆的根节点的数最大。<br/>
  *      然后将根节点与堆的最后一个节点交换。然后对前面(n-1)个数重新调整使之成为堆。<br/>
@@ -57,7 +56,7 @@ public class HeapSort implements ISelectSort {
 		for (int i = 0; i < len; i++) {
 			// 建堆
 			buildMaxHeap(datas, len - i - 1);
-			showArray(datas);
+			// showArray(datas);
 			// 交换堆顶和最后一个元素（重要）
 			swap(datas, 0, len - 1 - i);
 		}
